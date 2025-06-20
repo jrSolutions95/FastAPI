@@ -252,7 +252,7 @@ async def get_form_video_add(request: Request):
 #Accept data from form_video_add and add to the database
 
 @app.post("/submit_form_video_add")
-async def submit_form_video_add(title:str=Form(),youtube_code=Form(),category_id=Form()):
+async def submit_form_video_add(title: str = Form(), youtube_code: str = Form(),category_id: int = Form()):
     new_video = Video(title=title,youtube_code=youtube_code,category_id=int(category_id))
     with Session(engine) as session:
         session.add(new_video)
