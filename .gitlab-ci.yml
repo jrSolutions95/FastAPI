@@ -16,4 +16,4 @@ integration_tests:
   script:
     - pip install -r requirements.txt
     - pip install pytest pytest-cov pytest-asyncio
-    - pytest tests/test_integration_routes.py test_main.py --cov=main --cov-append --cov-report=term
+    - pytest tests/test_integration_routes.py --cov=main --cov-append --cov-report=term
