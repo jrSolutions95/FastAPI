@@ -1,0 +1,32 @@
+Husk å oppdatere vscdoe og pyhtonpakkene for å få riktig farge på ting
+
+
+Lage virituelt miljø:
+ python3 -m venv venv
+Aktivere virituelt miljø:
+    source venv/bin/activate
+
+Installere pakker:
+    pip3 install fastapi[all]
+    pip install sqlmodel
+    pip install uvicorn
+
+Kjøres for å lage databasen da ser du en film som heter database.db og en utskrift i terminalen (må kjøres hvis vi lengre til ting i models feks video)
+
+python3 database.py
+
+last ned https://sqlitebrowser.org/dl/ og åpne database.db for å se databasen
+
+
+uvicorn main:app --reload (denne kjøres for å starte serveren)
+
+Her kan man finne dokumentasjonen: http://127.0.0.1:8000/docs
+
+Kan kjøre ting i browseren legge inn nye elementer feks og sjekke med DB browsern for å se om det har kommet inn
+
+Kan lage mange morsomme spørringer med sql språk
+
+Hack: marker noe, cmd +f tror jeg evt edit og replace og erstatt ting du vil bytte ut
+
+pip install jinja2
+pip install python-multipart
