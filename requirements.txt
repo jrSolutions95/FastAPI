@@ -13,9 +13,7 @@ email-validator==1.2.1
 entrypoints==0.4
 executing==0.8.3
 fastapi==0.78.0
-greenlet==1.1.2
 h11==0.13.0
-httptools==0.4.0
 idna==3.3
 ipykernel==6.13.1
 ipython==8.4.0
@@ -60,3 +58,5 @@ watchgod==0.8.2
 wcwidth==0.2.5
 websockets==10.3
 pytest==8.4.1
+greenlet==2.0.2
+httptools==0.6.0
