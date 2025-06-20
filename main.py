@@ -17,11 +17,11 @@ templates = Jinja2Templates(directory='templates')
 async def home():
     return """
     <h1>Home page</h1>
-    <a href='http://127.0.0.1:8000/docs'>http://127.0.0.1:8000/docs</a>
+    <a href='/docs'>/docs</a>
     <p>
-    <a href='http://127.0.0.1:8000/get_form_video_add'>Add a video</a>
-    </p>"""
-
+    <a href='/get_form_video_add'>Add a video</a>
+    </p>
+    """
 # region validators
 async def is_category_id(category_id: int, db: Session):
     return db.get(Category, category_id) is not None
