@@ -1,14 +1,17 @@
-stages:
-  - test
+image: python:3.10
+
+cache:
+  paths:
+    - .cache/pip
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+before_script:
+  - python -m pip install --upgrade pip
+  - pip install -r requirements.txt
 
 test:
   stage: test
-  image: python:3.11
-  before_script:
-    - apt-get update && apt-get install -y curl build-essential
-    - curl https://sh.rustup.rs -sSf | sh -s -- -y
-    - source $HOME/.cargo/env
-    - pip install --upgrade pip
-    - pip install -r requirements.txt
   script:
-    - pytest -s
+    - pytest
