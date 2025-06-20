@@ -12,7 +12,7 @@ dnspython==2.2.1
 email-validator==1.2.1
 entrypoints==0.4
 executing==0.8.3
-fastapi==0.78.0
+fastapi>=0.110.0
 h11==0.13.0
 idna==3.3
 ipykernel==6.13.1
@@ -47,7 +47,7 @@ sniffio==1.2.0
 SQLAlchemy==1.4.35
 sqlmodel==0.0.6
 stack-data==0.2.0
-starlette==0.19.1
+starlette>=0.37.2
 tornado==6.1
 traitlets==5.2.2.post1
 typing_extensions==4.2.0
