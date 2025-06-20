@@ -9,6 +9,14 @@ unit_tests:
     - pip install -r requirements.txt
     - pip install pytest pytest-cov pytest-asyncio
     - pytest tests/test_unit_validators.py --cov=main --cov-report=xml
+  artifacts:
+    paths:
+      - coverage.xml
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
+    expire_in: 1 week
 
 integration_tests:
   stage: test_integration
@@ -17,10 +25,7 @@ integration_tests:
     - pip install -r requirements.txt
     - pip install pytest pytest-cov pytest-asyncio
     - pytest tests/test_integration_routes.py --cov=main --cov-append --cov-report=xml
-artifacts:
-  paths:
-    - coverage.xml
-  reports:
-    coverage_report:
-      coverage_format: cobertura
-      path: coverage.xml
+  artifacts:
+    paths:
+      - coverage.xml
+    expire_in: 1 week
