@@ -16,4 +16,11 @@ integration_tests:
   script:
     - pip install -r requirements.txt
     - pip install pytest pytest-cov pytest-asyncio
-    - pytest tests/test_integration_routes.py --cov=main --cov-append --cov-report=term
+    - pytest tests/test_integration_routes.py --cov=main --cov-append --cov-report=xml
+artifacts:
+  paths:
+    - coverage.xml
+  reports:
+    coverage_report:
+      coverage_format: cobertura
+      path: coverage.xml
