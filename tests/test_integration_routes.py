@@ -6,6 +6,7 @@ from main import app
 transport = ASGITransport(app=app)
 BASE_URL = "http://test"
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_home_page():
     async with AsyncClient(transport=transport, base_url=BASE_URL) as ac:
@@ -13,6 +14,7 @@ async def test_home_page():
         assert res.status_code == 200
         assert "<h1>Home page</h1>" in res.text
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_create_and_get_category():
     async with AsyncClient(transport=transport, base_url=BASE_URL) as ac:
@@ -24,6 +26,7 @@ async def test_create_and_get_category():
         assert res_get.status_code == 200
         assert res_get.json()["name"] == "Science"
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_create_video_and_fetch():
     async with AsyncClient(transport=transport, base_url=BASE_URL) as ac:
@@ -40,6 +43,7 @@ async def test_create_video_and_fetch():
         assert res_get.status_code == 200
         assert res_get.json()["title"] == "FastAPI Video"
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_all_videos():
     async with AsyncClient(transport=transport, base_url=BASE_URL) as ac:
@@ -47,6 +51,7 @@ async def test_get_all_videos():
         assert res.status_code == 200
         assert isinstance(res.json(), list)
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_categorized_videos():
     async with AsyncClient(transport=transport, base_url=BASE_URL) as ac:

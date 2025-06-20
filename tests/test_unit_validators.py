@@ -12,6 +12,7 @@ def session():
     with Session(test_engine) as session:
         yield session
 
+@pytest.mark.unit
 @pytest.mark.asyncio
 async def test_is_category_id_true(session):
     category = Category(name="Test")
@@ -19,10 +20,12 @@ async def test_is_category_id_true(session):
     session.commit()
     assert await is_category_id(category.id, session) is True
 
+@pytest.mark.unit
 @pytest.mark.asyncio
 async def test_is_category_id_false(session):
     assert await is_category_id(999, session) is False
 
+@pytest.mark.unit
 @pytest.mark.asyncio
 async def test_is_category_name_true(session):
     category = Category(name="UniqueName")
@@ -30,10 +33,12 @@ async def test_is_category_name_true(session):
     session.commit()
     assert await is_category_name("UniqueName", session) is True
 
+@pytest.mark.unit
 @pytest.mark.asyncio
 async def test_is_category_name_false(session):
     assert await is_category_name("DoesNotExist", session) is False
 
+@pytest.mark.unit
 @pytest.mark.asyncio
 async def test_is_active_video_true(session):
     category = Category(name="WithVideo")
@@ -44,10 +49,12 @@ async def test_is_active_video_true(session):
     session.commit()
     assert await is_active_video(video.id, session) is True
 
+@pytest.mark.unit
 @pytest.mark.asyncio
 async def test_is_active_video_false(session):
     assert await is_active_video(12345, session) is False
 
+@pytest.mark.unit
 @pytest.mark.asyncio
 async def test_count_videos_in_category(session):
     category = Category(name="CountTest")
