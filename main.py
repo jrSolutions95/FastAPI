@@ -34,8 +34,8 @@ async def home():#Funksjonsnavnet her vises i documentasjonen
 #Post a new video
 @app.post("/video", status_code=status.HTTP_201_CREATED)#Status code 201 betyr at noe er lagt til, husk importer status
 async def post_a_video(video: VideoBase):#Type hint VideoBase, brukes fordi vil se schemaet for videobase i apiet, og ikke video#endregion video_routes
-    #new_video = Video.from_orm(video)
-    new_video = Video.model_validate(video)
+    new_video = Video.from_orm(video)
+    #new_video = Video.model_validate(video)
     #Make sure new video has a valid category
     if not await is_category_id(new_video.category_id):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Category not found")
